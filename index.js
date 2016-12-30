@@ -54,6 +54,7 @@ io.on('connection', function(socket){
     connections -= 1;
     delete ids[clientId]
     io.emit('connections', connections);
+    io.emit('online players', onlinePlayers());
     console.log(`${socket.id} disconnected!`);
   });
 
