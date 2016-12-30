@@ -1,22 +1,50 @@
 <!doctype html>
 <html>
   <head>
-    <title>🔥🔥🔥Emoji Racer!🔥🔥🔥</title>
-    <link rel="stylesheet" href="css/style.css" />
+    <title>🔥Emoji Racer!🔥</title>
     <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/modal.css" />
   </head>
   <body>
+    <div class="modal">
+      <div class="instructions-modal">
+        <div class="modal-text">
+          <div class="modal-title">
+            🚓 emoji racer 🐎🏁
+          </div>
+          <div class="modal-p">
+            Type the emoji before your friends do! Race to prove your emoji knowledge is 💯
+          </div>
+          <label>Pick a name:
+            <input id="username" autocomplete="off" value="guest"/>
+          </label>
+          <div class="start-game">
+            Join the party 🎉
+          </div>
+
+          <div class="help show-modal">
+            How do I emoji?
+          </div>
+
+          <div class="keyboard-instructions">
+            OSX: control + ⌘ + space
+            <br>
+            iOS/Android: download Gboard!
+            <br>
+            PC: <a href="https://chrome.google.com/webstore/detail/emoji-input-by-emojistuff/immhpnclomdloikkpcefncmfgjbkojmh?hl=en-US">Chrome extension</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="the-world">
       <div class="topper">
         <div class="connections">
-          0
-        </div>
-        <div class="connections-dummy">
-          👫 racing right now!
+          racers
         </div>
         <div class="online-parent">
           <div class="online-users">
-            (users), (users), (users), (users), (users), (users), (users), (users), (users), (users), (users), (users), (users),
           </div>
         </div>
       </div>
@@ -33,7 +61,7 @@
 
       <div class="bottomer">
         <form action="">
-          <input id="username" autocomplete="off" value="guest"/>
+
           <input id="m" autocomplete="off" placeholder="type your emoji here!"/>
         </form>
       </div>

@@ -15,25 +15,33 @@ app.get('/', function(req, res){
 var connections = 0;
 
 var score = {};
+var ids = {};
 
 io.on('connection', function(socket){
   connections += 1;
+  var clientId = socket.id;
+  io.emit('online players', onlinePlayers());
+
   io.emit('connections', connections);
   io.emit('target', emojiRacer.display());
-  console.log('a user connected');
+  console.log(`${socket.id} connected`);
   // socket.broadcast.emit('hi');
   socket.on('chat message', function(msg){
     io.emit('chat message', msg)
   });
 
   socket.on('guess', (emoji, name) => {
-    if (emojiRacer.guess(emoji, name)) {
-      if (score[name]) {
-        score[name] += 1;
+    var guesserId = arguments[0].client.id;
+    if (emojiRacer.guess(emoji)) {
+      if (score[guesserId]) {
+        score[guesserId] += 1;
       } else {
-        score[name] = 1;
+        score[guesserId] = 1;
+        ids[guesserId] = name;
       }
-      io.emit('correct guess', emoji, name, score[name]);
+      remainingTime = MAX_TIME;
+      io.emit('correct guess', emoji, name, score[guesserId]);
+      io.emit('online players', onlinePlayers());
       io.emit('target', emojiRacer.display());
     } else {
       if (!"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".includes(emoji)) {
@@ -41,10 +49,12 @@ io.on('connection', function(socket){
       }
     }
   });
+
   socket.on('disconnect', function(){
     connections -= 1;
+    delete ids[clientId]
     io.emit('connections', connections);
-    console.log('user disconnected!');
+    console.log(`${socket.id} disconnected!`);
   });
 
   socket.on('cheating', (name) => {
@@ -61,9 +71,16 @@ var emojiRacer = new Game();
 var MAX_TIME = 30;
 var remainingTime = MAX_TIME;
 
+var onlinePlayers = () => {
+  var playerList = [];
+  Object.keys(ids).map((id) => {
+    playerList.push(`[${score[id]}] ${ids[id]}`)
+  })
+  return playerList.join(", ")
+}
+
 var interval = setInterval(function() {
   remainingTime -= 1;
-  console.log(remainingTime);
   if (remainingTime < 0) {
     emojiRacer.newEmoji();
     io.emit('target', emojiRacer.display());

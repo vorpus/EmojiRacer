@@ -20,9 +20,8 @@ function Game () {
     return freshEmoji.emoji;
   }
 
-  this.guess = function(playerGuess, name) {
+  this.guess = function(playerGuess) {
     var guess = this.processGuess(playerGuess);
-    console.log(`${name} guesses ${guess} for ${this.answer}!`)
     if (guess === this.answer) {
       this.newEmoji();
       return true;

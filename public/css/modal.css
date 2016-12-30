@@ -1,0 +1,59 @@
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  font-size: 3vh;
+}
+.instructions-modal {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 3vh;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+  border-radius: 10px;
+}
+
+.keyboard-instructions {
+  display: none;
+}
+
+.modal-text input {
+  font-size: 4vh;
+  border: 1px solid black;
+  text-align: center;
+  width: 100%;
+}
+
+.start-game {
+  text-align: center;
+  padding: 10px;
+  margin: 30px 0px;
+  background: #A3FF4B;
+  border-radius: 5px;
+}
+
+.help {
+  display: none;
+  color: blue;
+}
+.show-modal {
+  display: block;
+}
+
+.modal-title {
+  font-size: 4vh;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.modal-p {
+  margin-bottom: 20px;
+}

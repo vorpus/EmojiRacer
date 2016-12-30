@@ -1,10 +1,8 @@
-* {
-  font-size: 5vh;
-  box-sizing: border-box;
-}
 
 body {
   font-family: sans-serif;
+  font-size: 5vh;
+  box-sizing: border-box;
 }
 
 form {
@@ -33,7 +31,7 @@ form input {
 
 .connections {
   font-size: 3vh;
-  float: left;
+  text-align: center;
 }
 .connections-dummy {
   font-size: 3vh;
@@ -60,18 +58,14 @@ form input {
 }
 
 #messages {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
+  font-size: 8vh;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 
 #messages li:nth-child(odd) {
   background: lightgray;
-}
-
-#username {
-  font-size: 2vh;
-  border: 1px solid black;
 }
 
 #m {
