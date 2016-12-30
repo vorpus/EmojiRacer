@@ -1,12 +1,12 @@
 * {
-  margin: 0;
-  padding: 0;
   font-size: 5vh;
   box-sizing: border-box;
 }
+
 body {
   font-family: sans-serif;
 }
+
 form {
     background: #000;
     position: fixed;
@@ -18,13 +18,45 @@ form input {
   font-size: 5vh;
 }
 
+.main-area {
+  position: relative;
+}
+
+.timer {
+  position: absolute;
+  text-align: center;
+  right: 50%;
+  z-index: -1;
+  font-size: 30vh;
+  opacity: 0.1;
+}
+
 .connections {
+  font-size: 3vh;
   float: left;
+}
+.connections-dummy {
+  font-size: 3vh;
 }
 
 .target {
+  width: 50%;
+  margin: 20px auto;
   font-size: 20vh;
   text-align: center;
+}
+
+.online-parent {
+  height: 3.5vh;
+  overflow:hidden;
+
+}
+.online-users {
+  font-size: 3vh;
+  height: 6vh;
+  white-space: nowrap;
+  overflow: scroll;
+  padding-right: 17px;
 }
 
 #messages {
@@ -35,6 +67,16 @@ form input {
 
 #messages li:nth-child(odd) {
   background: lightgray;
+}
+
+#username {
+  font-size: 2vh;
+  border: 1px solid black;
+}
+
+#m {
+  font-size: 4vh;
+  border: 1px solid black;
 }
 
 .correct {

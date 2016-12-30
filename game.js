@@ -20,13 +20,25 @@ function Game () {
     return freshEmoji.emoji;
   }
 
-  this.guess = function(guess, name) {
-    console.log(`${name} guesses ${guess} for ${this.answer}`)
+  this.guess = function(playerGuess, name) {
+    var guess = this.processGuess(playerGuess);
+    console.log(`${name} guesses ${guess} for ${this.answer}!`)
     if (guess === this.answer) {
       this.newEmoji();
       return true;
     } else {
       return false;
+    }
+  }
+
+  this.processGuess = function(guess) {
+    switch(guess) {
+      case "☣️":
+        return "☣";
+        break;
+      default:
+        return guess;
+        break;
     }
   }
 

@@ -3,66 +3,47 @@
   <head>
     <title>🔥🔥🔥Emoji Racer!🔥🔥🔥</title>
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/reset.css" />
   </head>
   <body>
-    <div class="connections">
-      0
-    </div> 👫 guessing emojis right now!
-    <div class="target">
-      ?
+    <div class="the-world">
+      <div class="topper">
+        <div class="connections">
+          0
+        </div>
+        <div class="connections-dummy">
+          👫 racing right now!
+        </div>
+        <div class="online-parent">
+          <div class="online-users">
+            (users), (users), (users), (users), (users), (users), (users), (users), (users), (users), (users), (users), (users),
+          </div>
+        </div>
+      </div>
+
+      <div class="main-area group">
+        <div class="timer">
+          0
+        </div>
+        <div class="target">
+          ?
+        </div>
+        <ul id="messages"></ul>
+      </div>
+
+      <div class="bottomer">
+        <form action="">
+          <input id="username" autocomplete="off" value="guest"/>
+          <input id="m" autocomplete="off" placeholder="type your emoji here!"/>
+        </form>
+      </div>
+
     </div>
-    <ul id="messages"></ul>
-    <form action="">
-      <input id="username" autocomplete="off" value="guest"/>
-      <input id="m" autocomplete="off" placeholder="type your emoji here!"/>
-    </form>
+
 
 
     <script src="/socket.io/socket.io.js"></script>
     <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
-    <script>
-      var socket = io();
-      var wins = 0;
-      $('#username').val(`user${Math.floor(Math.random()*100000)}`)
-      $('#m').on('input', () => {
-        socket.emit('guess', $('#m').val(), $('#username').val());
-        $('#m').val('');
-      });
-      $('form').submit(function(e){
-        e.preventDefault();
-      });
-      socket.on('guess', function(msg, name){
-        $('<li>').text(`${name}: ${msg}`).appendTo('#messages')
-          .fadeIn('slow')
-          .animate({opacity: 1.0}, 1000)
-          .fadeOut('slow');
-      });
-
-      socket.on('correct guess', function(msg, name, score){
-        $('<li>').text(`[${score}] ${name}: ${msg}`).appendTo('#messages').addClass('correct')
-          .fadeIn('slow')
-          .animate({opacity: 1.0}, 10000)
-          .fadeOut('slow');
-      });
-
-      socket.on('connections', (num) => {
-        $('.connections').html(num);
-      })
-      socket.on('target', (targetEmoji) => {
-        $('.target').html(targetEmoji);
-      })
-
-      socket.on('cheating', (name) => {
-        $('<li>').text(`${name} tried to cheat!`).appendTo('#messages').addClass('cheater')
-          .fadeIn('slow')
-          .animate({opacity: 1.0}, 5000)
-          .fadeOut('slow');
-      })
-
-      $('body').bind('copy paste',function(e) {
-        socket.emit('cheating', $('#username').val());
-        e.preventDefault(); return false;
-      });
-    </script>
+    <script src="./local.js" charset="utf-8"></script>
   </body>
 </html>

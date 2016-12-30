@@ -44,7 +44,7 @@ io.on('connection', function(socket){
   socket.on('disconnect', function(){
     connections -= 1;
     io.emit('connections', connections);
-    console.log('user disconnected');
+    console.log('user disconnected!');
   });
 
   socket.on('cheating', (name) => {
@@ -57,3 +57,17 @@ http.listen(port, function(){
 });
 
 var emojiRacer = new Game();
+
+var MAX_TIME = 30;
+var remainingTime = MAX_TIME;
+
+var interval = setInterval(function() {
+  remainingTime -= 1;
+  console.log(remainingTime);
+  if (remainingTime < 0) {
+    emojiRacer.newEmoji();
+    io.emit('target', emojiRacer.display());
+    remainingTime = MAX_TIME;
+  }
+  io.emit('timer', remainingTime);
+}, 1000);
