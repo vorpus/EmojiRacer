@@ -1,14 +1,23 @@
 var emoji = require('node-emoji')
 
 function Game () {
-  this.answer = emoji.random().emoji;
+
 
   this.display = function() {
     return this.answer;
   }
 
   this.newEmoji = function() {
-    this.answer = emoji.random().emoji;
+    this.answer = this.getEmoji();
+  }
+
+  this.getEmoji = function() {
+    var freshEmoji = emoji.random();
+    while (freshEmoji.key.includes('flag-')) {
+      console.log(`its a flag ${freshEmoji.emoji}`)
+      freshEmoji = emoji.random();
+    }
+    return freshEmoji.emoji;
   }
 
   this.guess = function(guess, name) {
@@ -20,6 +29,8 @@ function Game () {
       return false;
     }
   }
+
+  this.answer = this.getEmoji();
 }
 
 module.exports = Game;
