@@ -1,48 +1,46 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-size: 5vh;
+  box-sizing: border-box;
 }
 body {
-    font: 20px Helvetica, Arial;
+  font-family: sans-serif;
 }
 form {
     background: #000;
-    padding: 3px;
     position: fixed;
     bottom: 0;
     width: 100%;
 }
 form input {
-    border: 0;
-    padding: 10px;
-    width: 90%;
-    margin-right: .5%;
-}
-form button {
-    width: 9%;
-    background: rgb(130, 224, 255);
-    border: none;
-    padding: 10px;
+  width: 100%;
+  font-size: 5vh;
 }
 
 .connections {
-  font-size: 24px;
   float: left;
 }
 
 .target {
-  font-size: 72px;
+  font-size: 50vh;
+  text-align: center;
 }
+
 #messages {
     list-style-type: none;
     margin: 0;
     padding: 0;
 }
+
+#messages li:nth-child(odd) {
+  background: lightgray;
+}
+
 .correct {
-  background: green;
+  background: green !important;
 }
 
 .cheater {
-  background: red;
+  background: red !important;
 }
