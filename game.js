@@ -14,7 +14,6 @@ function Game () {
   this.getEmoji = function() {
     var freshEmoji = emoji.random();
     while (freshEmoji.key.includes('flag-')) {
-      console.log(`its a flag ${freshEmoji.emoji}`)
       freshEmoji = emoji.random();
     }
     return freshEmoji.emoji;
