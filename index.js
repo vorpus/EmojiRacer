@@ -14,6 +14,8 @@ app.get('/', function(req, res){
 
 var connections = 0;
 
+var score = {};
+
 io.on('connection', function(socket){
   connections += 1;
   io.emit('connections', connections);
@@ -26,7 +28,12 @@ io.on('connection', function(socket){
 
   socket.on('guess', (emoji, name) => {
     if (emojiRacer.guess(emoji, name)) {
-      io.emit('correct guess', emoji, name);
+      if (score[name]) {
+        score[name] += 1;
+      } else {
+        score[name] = 1;
+      }
+      io.emit('correct guess', emoji, name, score[name]);
       io.emit('target', emojiRacer.display());
     } else {
       if (!"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".includes(emoji)) {

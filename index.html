@@ -38,8 +38,8 @@
           .fadeOut('slow');
       });
 
-      socket.on('correct guess', function(msg, name){
-        $('<li>').text(`${name}: ${msg}`).appendTo('#messages').addClass('correct')
+      socket.on('correct guess', function(msg, name, score){
+        $('<li>').text(`[${score}] ${name}: ${msg}`).appendTo('#messages').addClass('correct')
           .fadeIn('slow')
           .animate({opacity: 1.0}, 10000)
           .fadeOut('slow');
@@ -55,7 +55,7 @@
       socket.on('cheating', (name) => {
         $('<li>').text(`${name} tried to cheat!`).appendTo('#messages').addClass('cheater')
           .fadeIn('slow')
-          .animate({opacity: 1.0}, 3000)
+          .animate({opacity: 1.0}, 5000)
           .fadeOut('slow');
       })
 
