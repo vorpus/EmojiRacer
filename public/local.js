@@ -24,7 +24,7 @@ $('.the-world').on('click', () => {
   setTimeout(function() { window.scrollTo(0, 0); }, 100);
 })
 
-// $('.modal').addClass('show-modal');
+$('.modal').addClass('show-modal');
 
 $('.start-game').on('click', () => {
   $('.modal').removeClass('show-modal');
