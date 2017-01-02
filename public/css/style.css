@@ -3,6 +3,7 @@ body {
   font-family: sans-serif;
   font-size: 5vh;
   box-sizing: border-box;
+  overflow: hidden;
 }
 
 form {
@@ -16,20 +17,24 @@ form input {
   font-size: 5vh;
 }
 
-.main-area {
+.the-world {
+  height: 100%;
   position: relative;
+}
+
+.main-area {
 }
 
 .timer {
   position: absolute;
   text-align: center;
-  right: 50%;
-  z-index: -1;
-  font-size: 30vh;
+  right: 25%;
+  font-size: 25vh;
   opacity: 0.1;
 }
 
 .connections {
+  margin-top: 5%;
   font-size: 3vh;
   text-align: center;
 }
@@ -64,12 +69,8 @@ form input {
   padding: 0;
 }
 
-#messages li:nth-child(odd) {
-  background: lightgray;
-}
-
 #m {
-  font-size: 4vh;
+  font-size: 3vh;
   border: 1px solid black;
 }
 

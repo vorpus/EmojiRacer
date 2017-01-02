@@ -1,0 +1,23 @@
+@keyframes move
+{
+    0% {
+        opacity: 1;
+        left: 0%;
+        bottom: 0;
+    }
+    50% {
+      opacity: 0.8;
+    }
+    100% {
+      opacity: 0;
+      left: 40%;
+      bottom: 95%;
+    }
+}
+
+.guess-val {
+    text-decoration: none;
+    padding-right: 20px;
+    position: absolute;
+    animation: move 1.5s;
+}

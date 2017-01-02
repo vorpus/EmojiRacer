@@ -14,6 +14,10 @@ button, article, footer, small {
   background: transparent;
 }
 
+html, body {
+  height: 100%;
+}
+
 a {
   color: blue;
 }

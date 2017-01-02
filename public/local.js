@@ -2,7 +2,7 @@ var socket = io();
 var name = '';
 var wins = 0;
 
-$('#username').val(`u${Math.floor(Math.random()*10000)}`)
+$('#username').val(`u${Math.floor(Math.random()*1000)}`)
 
 $('#m').on('input', () => {
   name = $('#username').val()
@@ -24,7 +24,7 @@ $('.the-world').on('click', () => {
   setTimeout(function() { window.scrollTo(0, 0); }, 100);
 })
 
-$('.modal').addClass('show-modal');
+// $('.modal').addClass('show-modal');
 
 $('.start-game').on('click', () => {
   $('.modal').removeClass('show-modal');
@@ -39,9 +39,9 @@ $('.help').on('click', () => {
 
 socket.on('guess', function(msg, name){
   $('<li>').text(`${name}: ${msg}`).appendTo('#messages')
-    .fadeIn('slow')
     .animate({opacity: 1.0}, 1000)
-    .fadeOut('slow');
+    .addClass('guess-val')
+    .fadeOut('fast');
 });
 
 socket.on('correct guess', function(msg, name, score){
@@ -56,7 +56,11 @@ socket.on('timer', (num) => {
 });
 
 socket.on('connections', (num) => {
-  $('.connections').html(`${num} 👫 racing right now!`);
+  if (num <= 1) {
+    $('.connections').html(`👤 You're racing solo!`);
+  } else {
+    $('.connections').html(`${num} 👫 racing right now!`);
+  }
 });
 
 socket.on('online players', (num) => {

@@ -39,6 +39,11 @@
   border-radius: 5px;
 }
 
+.start-game:hover {
+  cursor: pointer;
+  background: #DFFF9F;
+}
+
 .help {
   display: none;
   color: blue;
