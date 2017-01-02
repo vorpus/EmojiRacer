@@ -13,10 +13,10 @@ function Game () {
 
   this.getEmoji = function() {
     var freshEmoji = emoji.random();
-    console.log(freshEmoji.key);
     while (freshEmoji.key.includes('flag-')) {
       freshEmoji = emoji.random();
     }
+    console.log(freshEmoji.key);
     return freshEmoji.emoji;
   }
 

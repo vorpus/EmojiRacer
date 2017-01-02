@@ -4,6 +4,8 @@ body {
   font-size: 5vh;
   box-sizing: border-box;
   overflow: hidden;
+  background: #f8e0ff;
+  background: linear-gradient(to bottom right, #d3addd, #f8e0ff);
 }
 
 form {
@@ -28,13 +30,14 @@ form input {
 .timer {
   position: absolute;
   text-align: center;
-  right: 25%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-10%);;
   font-size: 25vh;
   opacity: 0.1;
 }
 
 .connections {
-  margin-top: 5%;
+  margin-top: 20px;
   font-size: 3vh;
   text-align: center;
 }
@@ -43,10 +46,10 @@ form input {
 }
 
 .target {
-  width: 50%;
+  left: 50%;
   margin: 20px auto;
-  font-size: 20vh;
   text-align: center;
+  font-size: 200px;
 }
 
 .online-parent {
@@ -60,6 +63,15 @@ form input {
   white-space: nowrap;
   overflow: scroll;
   padding-right: 17px;
+}
+
+.game-instr {
+  opacity: 0.2;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  position: absolute;
+  bottom: 20%;
 }
 
 #messages {
